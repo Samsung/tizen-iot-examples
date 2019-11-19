@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="images/favicon.ico">
+
+  <title>Tizen IoT Dashboard</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/chart.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="./css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-dark sticky-top  bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">
+      <img src="images/tizen-brand.png" width="20" height="20" alt="">
+      <span class="nav-title align-middle">Tizen IoT</span>
+    </a>
+
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a id="sign-out" class="nav-link" href="#">Sign out</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container-fluid">
+
+    <!-- Side Navigation -->
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky ">
+          <ul class="nav flex-column ">
+            <li class="nav-item">
+              <a class="nav-link active" id="system-tab" data-toggle="tab" href="#system" role="tab"
+                aria-controls="system" aria-selected="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="feather feather-monitor">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <span class="nav-title">System Information</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="storage-tab" data-toggle="tab" href="#storage" role="tab" aria-controls="storage"
+                aria-selected="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="feather feather-database">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+                <span class="nav-title">Storage</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="connection-tab" data-toggle="tab" href="#connection" role="tab"
+                aria-controls="connection" aria-selected="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="feather feather-wifi">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                  <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                </svg>
+                <span class="nav-title">Network Connection</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="application-tab" data-toggle="tab" href="#application" role="tab"
+                aria-controls="application" aria-selected="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="feather feather-grid">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <span class="nav-title">Applications</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <div class="tab-content">
+          <div class="tab-pane active" id="system" role="tabpanel" aria-labelledby="system-tab">
+            <h2 class="page-title">System Information</h2>
+            <div id="system-information-content" class="card-deck">
+              <!-- <div class="col-xl-3 col-lg-5 col-md-5 col-sm-10 col-10 my-3">
+                <div class="card ">
+                  <div class="card-body">
+                    <p class="card-text">Manufacturer</p>
+                    <h5 class="card-title">Tizen</h5>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+
+          <div class="tab-pane" id="storage" role="tabpanel" aria-labelledby="storage-tab">
+            <h2 class="page-title">Storage</h2>
+            <div id="storage-content">
+              <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-10 col-8">
+              <div class="card my-3">
+                <h5 id="storage-type" class="card-header"></h5>
+                <div class="card-body">
+                  <ul id="storage-content"></ul>
+                  <div id="storage-canvas-holder" style="width:100%;height:100%;">
+                    <canvas id="storage-chart-area"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            </div>
+          </div>
+
+          <div class="tab-pane" id="connection" role="tabpanel" aria-labelledby="connection-tab">
+            <h2 class="page-title">Network Connection</h2>
+            <div class="card-deck">
+              <div class="col-xl-4 col-lg-5 col-md-5 col-sm-10 col-10 my-3">
+                <div class="card ">
+                  <div class="card-body">
+                    <p class="card-text">Ethernet</p>
+                    <h5 class="card-title" id="eth-value"></h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-5 col-md-5 col-sm-10 col-10 my-3">
+                <div class="card ">
+                  <div class="card-body">
+                    <p class="card-text">Bluetooth</p>
+                    <h5 class="card-title" id="bt-value"></h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-5 col-md-5 col-sm-10 col-10 my-3">
+                <div class="card ">
+                  <div class="card-body">
+                    <p class="card-text">Wifi</p>
+                    <div class="row">
+                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-10 col-4">
+                        <h5 class="card-title" id="wifi-value"></h5>
+                      </div>
+                      <!-- <div class="col-xl-1 col-lg-1 col-md-1 col-sm-10 col-1">
+                        <button type="button" class="btn btn-secondary">More</button>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="spinner-border"></div>
+            <div id="wifi-list" class="mt-5">
+              <div class="row">
+                <div class="col-md-2 col-sm-12">
+                  <h2 class="page-title">Wifi AP List</h2>
+                </div>
+                <div class="col-md-1 col-sm-12">
+                  <button type="button" class="btn btn-secondary" id="wifi-ap-refresh">Refresh</button>
+                </div>
+              </div>
+              <div class="table-responsive my-3">
+                <table class="table table-lg">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>AP Name</th>
+                      <th>Strength</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="wifi-ap-list">
+                    <!-- <div class="spinner-border text-secondary" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div> -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="application" role="tabpanel" aria-labelledby="application-tab">
+            <h2 class="page-title">Applications</h2>
+            <div class="table-responsive my-3">
+              <table class="table table-striped table-lg">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>App Name</th>
+                    <th>State</th>
+                    <th>PID</th>
+                  </tr>
+                </thead>
+                <tbody id="app-list">
+                  <!-- <tr>
+                    <td>1</td>
+                    <td>org.tizen.multi-assistant-service</td>
+                    <td>Service</td>
+                    <td>914</td>
+                  </tr> -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="./js/jquery-slim.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+
+  <!-- Icons -->
+  <script src="./js/feather.min.js"></script>
+  <script>
+    // feather.replace();
+  </script>
+
+  <script src="./js/chart.min.js"></script>
+
+
+  <script src="./js/script.js"></script>
+
+</body>
+
+</html>

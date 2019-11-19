@@ -1,0 +1,5 @@
+# realm
+[default]
+
+# user name and md5 hash for combining name, realm, and password(See RFC 2617)
+admin=9af7338e5fd4372f751ac58c69934aaa

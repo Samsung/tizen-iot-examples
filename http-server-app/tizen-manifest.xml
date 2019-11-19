@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="5.0" package="org.tizen.httpserver" version="1.0.0">
+    <profile name="iot-headed"/>
+    <service-application appid="org.tizen.httpserver" auto-restart="true" exec="httpserver" multiple="false" nodisplay="true" taskmanage="false" type="capp">
+        <label>httpserver</label>
+        <icon>httpserver.png</icon>
+    </service-application>
+    <privileges>
+        <privilege>http://tizen.org/privilege/network.get</privilege>
+        <privilege>http://tizen.org/privilege/network.set</privilege>
+        <privilege>http://tizen.org/privilege/internet</privilege>
+    </privileges>
+</manifest>

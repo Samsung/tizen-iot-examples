@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Uploads an image</title>
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+    <div id="post-image">
+      <form id="form-image-upload" action="/api/imageUpload" method="post" enctype="multipart/form-data">
+        <label>Image File : </label><input type="file" name="imageFile" id="imageFile" accept="image/*"><br><br>
+        <button type="button" id="upload-button" class="button-submit" data-formid="form-image-upload" disabled="true">Upload</button>
+      </form>
+    </div>
+    <br>
+    <div id="preview-container">
+      <img id='preview' src=""/>
+    </div>
+    <div id="post-result" class="result"></div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="/js/image-upload.js"></script>
+  </body>
+</html>
