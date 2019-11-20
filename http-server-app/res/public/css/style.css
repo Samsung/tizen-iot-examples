@@ -107,3 +107,29 @@ body {
   margin-bottom: 1.5rem;
   color: #272b30;
 }
+
+/*
+ * Responsive Design
+ */
+
+main {
+  margin-left: auto;
+}
+
+.storage-info {
+  padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .nav-title {
+    display: none;
+  }
+
+  .sidebar {
+    width: 50px;
+  }
+
+  main {
+    margin-left: 60px;
+  }
+}

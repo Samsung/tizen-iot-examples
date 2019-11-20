@@ -5,7 +5,6 @@ function httpRequestAsync(httpMethod, path, callback) {
 	xmlHttp.onload = function (e) {
 		if (xmlHttp.readyState === 4) {
 			if (xmlHttp.status === 200) {
-				console.log(xmlHttp.responseText);
 				callback(xmlHttp.responseText);
 			} else {
 				console.log("failed to get message : " + xmlHttp.statusText);
@@ -25,7 +24,7 @@ function setSystemInfo(jsonStr) {
 	var json = JSON.parse(jsonStr);
 	var parentElm = document.getElementById("system-information-content");
 
-	var strPreKey = "<div class='col-xl-3 col-lg-5 col-md-5 col-sm-10 col-10 my-3'><div class='card '><div class='card-body'><p class='card-text'>";
+	var strPreKey = "<div class='col-xl-5 col-lg-5 col-md-10 col-sm-10 col-10 my-3'><div class='card'><div class='card-body'><p class='card-text'>";
 	var strPreValue = "</p><h5 class='card-title'>";
 	var strEnd = "</h5></div></div></div>";
 
@@ -77,7 +76,7 @@ function storageInfoForeach(value, index, array) {
 	var valueAvailable = (value.availSpace / 1024).toFixed(1);
 	var valueUsed = (valueTotal - valueAvailable).toFixed(1);
 
-	var strPreType = "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-10 col-8'><div class='card my-3'><h5 class='storage-type card-header'>";
+	var strPreType = "<div class='col-xl-5 col-lg-7 col-md-10 col-sm-10 col-10 my-3'><div class='card'><h5 class='storage-type card-header'>";
 	var strPreInfo = "</h5><div class='card-body'><ul class='storage-info'>";
 	var strPreChartId = "</ul><div id='storage-canvas-holder' style='width:100%;height:100%;'><canvas id='storage-chart-area-";
 	var strEnd = "'></canvas></div></div></div></div>";
@@ -218,32 +217,7 @@ function fetchApplicationList() {
 	httpRequestAsync("GET", "/api/applicationList", setAppliationList);
 }
 
-function logout() {
-	// jQuery.ajax({
-    //         type: "GET",
-    //         url: "/myapp/logout",
-    //         async: false,
-    //         username: "logmeout",
-    //         password: "123456",
-    //         headers: { "Authorization": "Basic xxx" }
-	// })
-	// .done(function(){
-	//     // If we don't get an error, we actually got an error as we expect an 401!
-	// })
-	// .fail(function(){
-	//     // We expect to get an 401 Unauthorized error! In this case we are successfully
-    //         // logged out and we redirect the user.
-	//     window.location = "/myapp/index.html";
-    // });
-
-    // return false;
-}
-
-
 (() => {
-	// window.onload = function () {
-	//   };
-
 	document.addEventListener("DOMContentLoaded", function () {
 		fetchSystemInfo();
 	});
@@ -264,9 +238,4 @@ function logout() {
 	document.getElementById("application-tab").addEventListener("click", function () {
 		fetchApplicationList();
 	});
-
-	document.getElementById("sign-out").addEventListener("click", function () {
-		logout();
-	});
-
 })();

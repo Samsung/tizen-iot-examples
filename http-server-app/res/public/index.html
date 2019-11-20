@@ -22,23 +22,17 @@
 
 <body>
   <nav class="navbar navbar-dark sticky-top  bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">
+    <a class="navbar-brand col-md-2 mr-0" href="/">
       <img src="images/tizen-brand.png" width="20" height="20" alt="">
-      <span class="nav-title align-middle">Tizen IoT</span>
+      <span class="align-middle">Tizen IoT</span>
     </a>
-
-    <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap">
-        <a id="sign-out" class="nav-link" href="#">Sign out</a>
-      </li>
-    </ul>
   </nav>
 
   <div class="container-fluid">
 
     <!-- Side Navigation -->
     <div class="row">
-      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <nav class="col-md-2 d-md-block bg-light sidebar">
         <div class="sidebar-sticky ">
           <ul class="nav flex-column ">
             <li class="nav-item">
@@ -100,7 +94,7 @@
       </nav>
 
       <!-- Main Content -->
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+      <main role="main" class="col-md-9 col-lg-10 pt-3 px-4">
         <div class="tab-content">
           <div class="tab-pane active" id="system" role="tabpanel" aria-labelledby="system-tab">
             <h2 class="page-title">System Information</h2>
@@ -156,26 +150,18 @@
                 <div class="card ">
                   <div class="card-body">
                     <p class="card-text">Wifi</p>
-                    <div class="row">
-                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-10 col-4">
-                        <h5 class="card-title" id="wifi-value"></h5>
-                      </div>
-                      <!-- <div class="col-xl-1 col-lg-1 col-md-1 col-sm-10 col-1">
-                        <button type="button" class="btn btn-secondary">More</button>
-                      </div> -->
-                    </div>
+                    <h5 class="card-title" id="wifi-value"></h5>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="spinner-border"></div>
-            <div id="wifi-list" class="mt-5">
-              <div class="row">
-                <div class="col-md-2 col-sm-12">
+            <div id="wifi-list">
+              <div class="row mt-5">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-12">
                   <h2 class="page-title">Wifi AP List</h2>
                 </div>
-                <div class="col-md-1 col-sm-12">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-12">
                   <button type="button" class="btn btn-secondary" id="wifi-ap-refresh">Refresh</button>
                 </div>
               </div>
