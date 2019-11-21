@@ -1,13 +1,16 @@
-function httpRequestAsync(httpMethod, path, callback) {
+function httpRequestAsync(httpMethod, path, successCallback, failCallback) {
 	var xmlHttp = new XMLHttpRequest();
 	xmlHttp.open(httpMethod, path, true);
 
 	xmlHttp.onload = function (e) {
 		if (xmlHttp.readyState === 4) {
 			if (xmlHttp.status === 200) {
-				callback(xmlHttp.responseText);
+				successCallback(xmlHttp.responseText);
 			} else {
-				console.log("failed to get message : " + xmlHttp.statusText);
+				if (failCallback)
+					failCallback();
+				console.log("failed - error code[" + xmlHttp.status + "] : "
+					+ xmlHttp.statusText);
 			}
 		}
 	};
@@ -140,6 +143,12 @@ function apListForeach(value, index, array) {
 	tBodyElm.insertAdjacentHTML('beforeend', apInfoStr);
 }
 
+function wifiButtonEnable() {
+	var btn = document.getElementById('wifi-ap-refresh');
+	btn.disabled = false;
+	btn.textContent = 'Refresh';
+}
+
 function rssiSort(a, b) {
 	return (b.rssi - a.rssi);
 }
@@ -158,14 +167,12 @@ function setWifiApList(jsonStr) {
 		apList.forEach(apListForeach);
 	}
 
-	var btn = document.getElementById('wifi-ap-refresh');
-	btn.disabled = false;
-	btn.textContent = 'Refresh';
-
+	wifiButtonEnable();
 }
 
 function fetchApList() {
-	httpRequestAsync("GET", "/api/connection/wifiScan", setWifiApList);
+	httpRequestAsync("GET", "/api/connection/wifiScan",
+			setWifiApList, wifiButtonEnable);
 	var btn = document.getElementById('wifi-ap-refresh');
 	btn.disabled = true;
 	btn.textContent = 'Pending';
