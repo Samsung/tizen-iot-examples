@@ -34,6 +34,7 @@ static void wifi_deactivated_cb(wifi_manager_error_e result, void *user_data)
 {
 	struct wifi_data *data = user_data;
 	wifi_manager_deinitialize(data->wifi);
+	http_server_unpause_message(data->msg);
 	g_free(data);
 }
 
@@ -106,8 +107,11 @@ static void wifi_scan_finished_cb(wifi_manager_error_e result, void *user_data)
 	wifi_info_response_append(data->wifi, data->msg);
 
 	if (!data->activated) {
-		wifi_manager_deactivate(data->wifi, wifi_deactivated_cb, data);
-		http_server_unpause_message(data->msg);
+		int ret = wifi_manager_deactivate(data->wifi, wifi_deactivated_cb, data);
+		if (ret) {
+			_E("failed to wifi_manager_deactivate() - %d", ret);
+			http_server_unpause_message(data->msg);
+		}
 		return;
 	}
 
@@ -163,10 +167,7 @@ void handle_connection_wifi(SoupMessage *msg, GHashTable *query)
 	ret = wifi_manager_is_activated(wifi, &activated);
 	if (ret) {
 		_E("failed to wifi_manager_is_activated");
-		soup_message_set_status(msg, SOUP_STATUS_INTERNAL_SERVER_ERROR);
-		wifi_manager_deinitialize(wifi);
-		g_free(data);
-		return;
+		goto ERROR;
 	}
 
 	data->msg = msg;
@@ -174,9 +175,21 @@ void handle_connection_wifi(SoupMessage *msg, GHashTable *query)
 	data->activated = activated;
 
 	if (activated)
-		wifi_manager_scan(wifi, wifi_scan_finished_cb, data);
+		ret = wifi_manager_scan(wifi, wifi_scan_finished_cb, data);
 	else
-		wifi_manager_activate(wifi, wifi_activated_cb, data);
+		ret = wifi_manager_activate(wifi, wifi_activated_cb, data);
+
+
+	if (ret) {
+		_E("failed to wifi_manager scan or activate [%d] - %x", activated, ret);
+		goto ERROR;
+	}
 
 	http_server_pause_message(msg);
+
+	return;
+ERROR:
+	soup_message_set_status(msg, SOUP_STATUS_INTERNAL_SERVER_ERROR);
+	wifi_manager_deinitialize(wifi);
+	g_free(data);
 }
