@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<View x:Class="AccelerometerI2C.MainPage"
+        xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:b="clr-namespace:Tizen.NUI.BaseComponents;assembly=Tizen.NUI"
+        xmlns:c="clr-namespace:Tizen.NUI.Components;assembly=Tizen.NUI.Components"
+        xmlns:local="clr-namespace:AccelerometerI2C"
+        WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+        HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
+        BackgroundColor="White">
+
+    <View.Layout>
+        <LinearLayout LinearOrientation="Vertical" LinearAlignment="Center" CellPadding="20,20"/>
+    </View.Layout>
+
+    <Button Text="Start"
+            Clicked="ButtonStart"/>
+    <Button Text="Stop"
+            Clicked="ButtonStop"/>
+    <TextLabel x:Name="myAccelValueX"
+               Text="X:000 (0.00G)"
+               PixelSize="36"/>
+    <TextLabel x:Name="myAccelValueY"
+               Text="Y:000 (0.00G)"
+               PixelSize="36"/>
+    <TextLabel x:Name="myAccelValueZ"
+               Text="Z:000 (0.00G)"
+               PixelSize="36"/>
+</View>
