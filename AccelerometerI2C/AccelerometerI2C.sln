@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccelerometerI2C", "AccelerometerI2C\AccelerometerI2C.csproj", "{74C1DB50-E31D-4A7E-9658-9F605405B61B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccelerometerI2C", "AccelerometerI2C\AccelerometerI2C.csproj", "{8798C02F-4DB6-4B25-B4A8-CD1D62BE7908}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{74C1DB50-E31D-4A7E-9658-9F605405B61B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{74C1DB50-E31D-4A7E-9658-9F605405B61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{74C1DB50-E31D-4A7E-9658-9F605405B61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{74C1DB50-E31D-4A7E-9658-9F605405B61B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8798C02F-4DB6-4B25-B4A8-CD1D62BE7908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8798C02F-4DB6-4B25-B4A8-CD1D62BE7908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8798C02F-4DB6-4B25-B4A8-CD1D62BE7908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8798C02F-4DB6-4B25-B4A8-CD1D62BE7908}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {10DCDBF5-7F47-43B8-B35C-9C8D655CBF98}
+		SolutionGuid = {B017882C-5809-4EFC-BD04-231BD197FF9E}
 	EndGlobalSection
 EndGlobal

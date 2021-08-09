@@ -1,5 +1,4 @@
 ﻿using System;
-using Tizen.NUI;
 
 namespace AccelerometerI2C
 {
@@ -11,7 +10,7 @@ namespace AccelerometerI2C
         [STAThread]
         static void Main(string[] args)
         {
-            Accelerometer Instance = new Accelerometer();
+            Scene1 Instance = new Scene1();
             Instance.Run(args);
         }
     }

@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<View x:Class="AccelerometerI2C.MainPage"
+<View x:Class="AccelerometerI2C.Scene1Page"
         xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-        xmlns:b="clr-namespace:Tizen.NUI.BaseComponents;assembly=Tizen.NUI"
-        xmlns:c="clr-namespace:Tizen.NUI.Components;assembly=Tizen.NUI.Components"
+      
         xmlns:local="clr-namespace:AccelerometerI2C"
         WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
         HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
