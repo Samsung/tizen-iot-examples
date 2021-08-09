@@ -1,12 +1,11 @@
 ﻿using Tizen.Applications;
 using Tizen.NUI;
 
-
 namespace AccelerometerI2C
 {
-    public class Accelerometer : NUIApplication
+    public class Scene1 : NUIApplication
     {
-        private MainPage mainPage;
+        private Scene1Page scene1Page;
         override protected void OnCreate()
         {
             Logger.Debug("");
@@ -15,13 +14,13 @@ namespace AccelerometerI2C
 
             // NOTE To use theme.xaml, uncomment below line.
             // ThemeManager.ApplyTheme(new Theme(Tizen.Applications.Application.Current.DirectoryInfo.Resource + "theme/theme.xaml"));
-            mainPage = new MainPage();
+            scene1Page = new Scene1Page();
 
-            GetDefaultWindow().Add(mainPage);
-            GetDefaultWindow().KeyEvent += OnKeyEvent;
+            GetDefaultWindow().Add(scene1Page);
+            GetDefaultWindow().KeyEvent += OnScene1KeyEvent;
         }
 
-        private void OnKeyEvent(object sender, Window.KeyEventArgs e)
+        private void OnScene1KeyEvent(object sender, Window.KeyEventArgs e)
         {
             Logger.Debug("");
 
@@ -45,7 +44,7 @@ namespace AccelerometerI2C
         {
             Logger.Debug("");
 
-            mainPage.DataUpdateStop();
+            scene1Page.DataUpdateStop();
             base.OnTerminate();
         }
 

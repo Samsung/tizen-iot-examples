@@ -1,13 +1,12 @@
 ﻿using System;
 using Tizen.NUI;
-using Tizen.NUI.Components;
 using Tizen.NUI.BaseComponents;
+using Tizen.NUI.Components;
 using Tizen.Peripheral.I2c;
-
 
 namespace AccelerometerI2C
 {
-    public partial class MainPage : View
+    public partial class Scene1Page : View
     {
         private const int Bus = 0x01;
         private const int Address = 0x53;
@@ -20,18 +19,20 @@ namespace AccelerometerI2C
         private I2cDevice i2cDevice;
         private Timer myTimer;
 
-        public MainPage()
+        public Scene1Page()
         {
             InitializeComponent();
         }
 
         private void ButtonStart(object sender, ClickedEventArgs e)
         {
+            // Start data measurement
             DataUpdateStart();
         }
 
         private void ButtonStop(object sender, ClickedEventArgs e)
         {
+            // Stop data measurement
             DataUpdateStop();
 
             myAccelValueX.Text = "X:000 (0.00G)";
@@ -63,6 +64,21 @@ namespace AccelerometerI2C
             myTimer.Start();
         }
 
+        private (short x, short y, short z) GetAcceleration()
+        {
+            const int Length = 3;
+            short[] rawData = new short[Length];
+
+            for (int i = 0; i < Length; ++i)
+            {
+                byte register = (byte)(DATAX0_REGISTER + i * 2);
+                ushort word = i2cDevice.ReadRegisterWord(register);
+                rawData[i] = (short)word;
+            }
+
+            return (rawData[0], rawData[1], rawData[2]);
+        }
+
         private bool TickEvent(object source, Tizen.NUI.Timer.TickEventArgs e)
         {
             (short x, short y, short z) = GetAcceleration();
@@ -86,21 +102,5 @@ namespace AccelerometerI2C
             myTimer.Dispose();
             i2cDevice.Close();
         }
-
-        private (short x, short y, short z) GetAcceleration()
-        {
-            const int Length = 3;
-            short[] rawData = new short[Length];
-
-            for (int i = 0; i < Length; ++i)
-            {
-                byte register = (byte)(DATAX0_REGISTER + i * 2);
-                ushort word = i2cDevice.ReadRegisterWord(register);
-                rawData[i] = (short)word;
-            }
-
-            return (rawData[0], rawData[1], rawData[2]);
-        }
-
     }
 }
