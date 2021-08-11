@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<View x:Class="SoundSensor.Scene1Page"
+        xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:local="clr-namespace:SoundSensor"
+        WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+        HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
+        BackgroundColor="White">
+    <View.Layout>
+        <LinearLayout LinearOrientation="Vertical" LinearAlignment="Center" CellPadding="20,20"></LinearLayout>
+    </View.Layout>
+
+    <ImageView ResourceUrl="*Resource*/images/tizen.png"/>
+    <TextLabel Text="Read Sound Data using SPI" PixelSize="48"/>
+    <Button Text="Start" Clicked="ButtonStart"></Button>
+    <Button Text="Stop"  Clicked="ButtonStop"></Button>
+    <TextLabel Text="Sound Value :" PixelSize="36"/>
+    <TextLabel x:Name="SoundValue" Text="0" PixelSize="36"/>
+</View>
