@@ -7,13 +7,24 @@
         HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
         BackgroundColor="White">
     <View.Layout>
+<<<<<<< HEAD
         <LinearLayout LinearOrientation="Vertical" LinearAlignment="Center" CellPadding="20,20"></LinearLayout>
+=======
+        <LinearLayout LinearOrientation="Vertical" LinearAlignment="Center"></LinearLayout>
+>>>>>>> 821d1f6ac013e5b99e2415dbb9d92f1cd0c89dfe
     </View.Layout>
 
     <ImageView ResourceUrl="*Resource*/images/tizen.png"/>
     <TextLabel Text="Read Sound Data using SPI" PixelSize="48"/>
+<<<<<<< HEAD
     <Button Text="Start" Clicked="ButtonStart"></Button>
     <Button Text="Stop"  Clicked="ButtonStop"></Button>
+=======
+    <TextLabel Text=" " PixelSize="24"/>
+    <Button Text="Start" Clicked="ButtonStart"></Button>
+    <Button Text="Stop"  Clicked="ButtonStop"></Button>
+    <TextLabel Text=" " PixelSize="24"/>
+>>>>>>> 821d1f6ac013e5b99e2415dbb9d92f1cd0c89dfe
     <TextLabel Text="Sound Value :" PixelSize="36"/>
     <TextLabel x:Name="SoundValue" Text="0" PixelSize="36"/>
 
