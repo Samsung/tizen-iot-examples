@@ -25,10 +25,10 @@ namespace SoundSensor
 
 		public Adc_MCP3008()
 		{
-			init();
+			Init();
 		}
 
-		public void init()
+		public void Init()
 		{ 
 			// open device
 			spiDevice = new SpiDevice(BUS, CS)
@@ -40,17 +40,17 @@ namespace SoundSensor
 			};
 		}
 
-		public bool read(int ch_num, ref uint out_value)
+		public bool Read(int channel, ref uint value)
 		{
 			if (spiDevice == null)
 				return false;
-			if (ch_num < 0 || ch_num > 7)
+			if (channel < 0 || channel > 7)
 				return false;
 
 
 			byte[] tx = { 0x00, 0x00, 0x00 };
 			tx[0] = TX_WORD1;
-			tx[1] = TX_CH[ch_num];
+			tx[1] = TX_CH[channel];
 			tx[2] = TX_WORD3;
 			byte[] rx = { 0x00, 0x00, 0x00 };
 			spiDevice.TransferSequential(tx, rx);
@@ -71,11 +71,11 @@ namespace SoundSensor
 			result |= (rx_w3);
 			result &= UINT10_VALIDATION_MASK;
 
-			out_value = result;
+			value = result;
 			return true;
 		}
 
-		public void close()
+		public void Close()
 		{
 			if (spiDevice == null)
 				return;

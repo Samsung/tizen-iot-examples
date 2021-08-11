@@ -15,10 +15,10 @@ namespace SoundSensor
             InitializeComponent();
         }
         
-        private bool getValue(ref uint value)
+        private bool ReadSensor(ref uint value)
         {
             uint read_value = 0;
-            if (!adcDevice.read(0, ref read_value))
+            if (!adcDevice.Read(0, ref read_value))
                 return false;
             Logger.print_bar(read_value);
             Logger.Debug($"sensor value - [{read_value}]");
@@ -59,7 +59,7 @@ namespace SoundSensor
         private bool TickEvent(object source, Tizen.NUI.Timer.TickEventArgs e)
         {
             uint value = 0;
-            bool result = getValue(ref value);
+            bool result = ReadSensor(ref value);
             if (result) {
                 Logger.Debug($"sensor value - [{value}]");
                 SoundValue.Text = value.ToString();
@@ -73,7 +73,7 @@ namespace SoundSensor
         public void DataUpdateStop()
         {
             myTimer.Dispose();
-            adcDevice.close();
+            adcDevice.Close();
 
             SoundValue.Text = "0";
         }
